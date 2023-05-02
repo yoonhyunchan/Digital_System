@@ -1,0 +1,22 @@
+module SingleCpu(CLK, OUT);
+    input CLK;
+    reg [31:0] ADDR;
+    wire [31:0] INST;
+    output reg [31:0] OUT;
+
+    Vr_inst_mem Vr_inst_mem1(.ADDR(ADDR), .INST(INST));
+
+
+    always @(posedge CLK) begin
+        ADDR = 4;
+        $display("%b", ADDR);
+    end
+
+    always @(INST) begin 
+        OUT = INST;
+    end
+
+
+
+
+endmodule
